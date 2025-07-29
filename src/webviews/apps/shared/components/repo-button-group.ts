@@ -200,7 +200,7 @@ export class GlRepoButtonGroup extends GlElement {
 								<a
 									href=${createCommandLink<ConnectRemoteProviderCommandArgs>(
 										'gitlens.connectRemoteProvider',
-										{ remote: provider.bestRemoteName!, repoPath: repo.path },
+										{ repoPath: repo.path },
 									)}
 								>
 									Connect to ${repo.provider!.name}
@@ -228,7 +228,6 @@ export class GlRepoButtonGroup extends GlElement {
 				part="connect-icon"
 				appearance="toolbar"
 				href=${createCommandLink<ConnectRemoteProviderCommandArgs>('gitlens.connectRemoteProvider', {
-					remote: provider.bestRemoteName!,
 					repoPath: repo.path,
 				})}
 			>
