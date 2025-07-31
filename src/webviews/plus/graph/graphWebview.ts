@@ -528,6 +528,8 @@ export class GraphWebviewProvider implements WebviewProvider<State, State, Graph
 			this.host.registerWebviewCommand('gitlens.graph.associateIssueWithBranch', this.associateIssueWithBranch),
 			this.host.registerWebviewCommand('gitlens.changeUpstream:graph', this.changeUpstreamBranch),
 			this.host.registerWebviewCommand('gitlens.setUpstream:graph', this.changeUpstreamBranch),
+			this.host.registerWebviewCommand('gitlens.ai.aiRebaseBranch:graph', this.aiRebaseBranch),
+			this.host.registerWebviewCommand('gitlens.ai.aiRebaseUnpushed:graph', this.aiRebaseUnpushed),
 
 			this.host.registerWebviewCommand('gitlens.graph.switchToBranch', this.switchTo),
 
@@ -3248,6 +3250,23 @@ export class GraphWebviewProvider implements WebviewProvider<State, State, Graph
 				branch: ref,
 				source: 'graph',
 			});
+		}
+
+		return Promise.resolve();
+	}
+
+	@log()
+	private aiRebaseBranch(item?: GraphItemContext) {
+		if (isGraphItemRefContext(item, 'branch')) {
+		}
+
+		return Promise.resolve();
+	}
+
+	@log()
+	private aiRebaseUnpushed(item?: GraphItemContext) {
+		if (isGraphItemRefContext(item, 'branch')) {
+			const { ref } = item.webviewItemValue;
 		}
 
 		return Promise.resolve();
